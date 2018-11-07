@@ -1,0 +1,27 @@
+<div class="container" ng-controller="NovaTarefaCtrl as $crtl" >
+        <h1>Nova Tarefa</h1>
+        
+       -- {{$crtl.task}}
+        <form novalidate name="newTask">
+        
+        
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+        
+                <input  ng-required="true" class="form-control" ng-model="$crtl.task.nome" name="" id="" >
+            </div>
+        
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+        
+                <input  ng-required="true" class="form-control" ng-model="$crtl.task.prazo" type="datetime-local">
+            </div>
+        
+            <button class="btn " type="reset">CANCELAR</button>
+            <button class="btn btn-primary" ng-disabled="newTask.$invalid" ng-click='$crtl.cadastrarTarefa($event)'>NOVA TAREFA</button>
+        
+          
+        </form>
+
+     
+</div>
