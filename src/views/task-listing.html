@@ -5,6 +5,19 @@
       <button class="btn btn-outline-primary" ui-sref="newTask">
         Nova Tarefa
       </button>
+
+      <div class="form-check">
+        <input
+          ng-model="$ctrl.filterByDateNotExpiredChecked"
+          class="form-check-input"
+          type="checkbox"
+          value=""          
+          id="defaultCheck1"
+        />
+        <label class="form-check-label" for="defaultCheck1">
+          Esconder  Terminadas
+        </label>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -18,7 +31,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="col-md-12" ng-repeat="tarefa in $ctrl.tasks">
+        <tr
+          class="col-md-12"
+          ng-repeat="tarefa in $ctrl.tasks | filter: $ctrl.filterByDateNotExpired"
+        >
           <td>
             <a ui-sref="editTask({id:tarefa.id})">#{{ ::tarefa.id }}</a>
           </td>
@@ -27,8 +43,8 @@
             <span
               ng-style="$ctrl.dateExpired(tarefa.prazo) && {'text-decoration':'line-through'}"
             >
-            {{ ::tarefa.prazo  || date}}</span>
-         
+              {{ ::tarefa.prazo  || date}}</span
+            >
           </td>
           <td>
             <button
