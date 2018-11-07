@@ -8,21 +8,20 @@
             .html5Mode(true); // enable html5Mode for pushstate ('#'-less URLs DOESN'T WORK)
         $locationProvider.hashPrefix('!');
 
-        $stateProvider.state('principal', {
+        $stateProvider.state('tasks', {
             url: '/',
-            templateUrl: '/views/principal.html'
+            templateUrl: '/views/task-listing.html'
         });
 
-        $stateProvider.state('tarefa', {
-            url: '/tarefa/:id',
-            templateUrl: '/views/tarefa.html',
-            controller: 'TarefaCtrl'
+        $stateProvider.state('editTask', {
+            url: '/task/:id',
+            templateUrl: '/views/task-edit.html',
         });
 
 
         $stateProvider.state('newTask', {
-            url: '/task',
-            templateUrl: '/views/new-task.html',
+            url: '/task/new',
+            templateUrl: '/views/task-create.html',
             
         });
 
